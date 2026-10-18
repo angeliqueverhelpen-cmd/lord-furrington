@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "name": "lord-furrington",
+  "version": "1.0.0",
+  "description": "A gentleman's game of blackjack.\r Meet Lord Furrington: an aristocratic feline who believes that good manners, a stiff upper lip, and a winning hand are the foundations of a respectable life.\r Unfortunately, his opponents don't always share his standards",
+  "main": "script.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angeliqueverhelpen-cmd/lord-furrington.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angeliqueverhelpen-cmd/lord-furrington/issues"
+  },
+  "homepage": "https://github.com/angeliqueverhelpen-cmd/lord-furrington#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^17.13.0"
+  }
+}
