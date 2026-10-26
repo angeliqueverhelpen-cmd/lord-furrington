@@ -5,10 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lord Furrington</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Monsieur+La+Doulaise&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Lord Furrington</h1>
-    <p>A gentleman's game of blackjack</p>
+    <!-- Stage and achtergrond elementen voor het spel -->
+    <div class="stage" id="stage">
+      <div class="intro-panel" id="introPanel">
+        <h1 id="intro">Shall we redistribute some wealth today?</h1>
+        <p>Yours to mine...</p>
+        <p id="lord-name">- Lord Furrington -</p>
+        <button class="btn" id="curtainButton" type="button">
+          Enter the parlor
+        </button>
+      </div>
+
+      <div class="curtain curtain-left"></div>
+      <div class="curtain curtain-right"></div>
+    </div>
+    <div class="background" id="background">
+      <div class="painting">
+        <img
+          src="LordFurrington.jpg"
+          alt="aristocratic cat at blackjack table"
+        />
+        <!-- gloed op de ogen, licht kort op bij blackjack -->
+        <span class="eye eye-left"></span>
+        <span class="eye eye-right"></span>
+        <p class="message" id="message">
+          Ah, a new patron, how delightfully optimistic!
+        </p>
+        <div class="game-container">
+          <!-- Dealer: links -->
+          <div class="dealer">
+            <h2>Lord Furrington</h2>
+            <!-- kaarten worden door script.js ingevuld -->
+            <div id="dealer-cards" class="cards"></div>
+            <p class="score">Score: <span id="dealer-score">0</span></p>
+          </div>
+
+          <!-- Controls: midden -->
+          <div class="controls">
+            <button id="hitButton" type="button">Hit</button>
+            <button id="standButton" type="button">Stand</button>
+            <button id="dealButton" type="button">Deal</button>
+          </div>
+
+          <!-- Player: rechts -->
+          <div class="player">
+            <h2>Player</h2>
+            <!-- kaarten worden door script.js ingevuld -->
+            <div id="player-cards" class="cards"></div>
+            <p class="score">Score: <span id="player-score">0</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

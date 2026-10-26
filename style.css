@@ -1,0 +1,449 @@
+body {
+  margin: 0;
+  background: #222;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  font-family: "Baskervville", serif;
+}
+
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url("https://www.figma.com/design/OIUgznf4UL1YknmPpdMLSD/Untitled?node-id=1-3&t=hBD2SfdHlNBdQFGd-4")
+    center/cover no-repeat;
+  overflow: hidden;
+}
+
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #3b0000 0%,
+    #5b0d0d 28%,
+    #7a1212 55%,
+    #4d0303 100%
+  );
+  transition: transform 3s ease;
+  z-index: 2;
+  box-shadow:
+    inset 0 0 25px rgba(0, 0, 0, 0.42),
+    inset -20px 0 30px rgba(255, 255, 255, 0.08);
+}
+
+.curtain-left {
+  left: 0;
+  transform: translateX(0);
+}
+
+.curtain-right {
+  right: 0;
+  background: linear-gradient(
+    270deg,
+    #3b0000 0%,
+    #5b0d0d 28%,
+    #7a1212 55%,
+    #4d0303 100%
+  );
+  transform: translateX(0);
+}
+
+.intro-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: min(74vw, 760px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  background: linear-gradient(
+    180deg,
+    rgba(49, 8, 8, 0.38),
+    rgba(34, 4, 4, 0.2)
+  );
+  border: 1px solid rgba(214, 171, 52, 0.35);
+  border-radius: 0.25rem;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 216, 116, 0.12),
+    0 0 20px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(1px);
+  transition:
+    opacity 1.6s ease,
+    transform 1.8s ease;
+}
+
+.intro-panel::before,
+.intro-panel::after {
+  content: "";
+  display: block;
+  width: 62%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(214, 171, 52, 0.9),
+    transparent
+  );
+}
+
+#intro {
+  color: #f3d16b;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.2;
+  font-style: italic;
+  text-align: center;
+  margin: 1.2rem 0 2rem;
+  text-shadow: 0 0 8px rgba(255, 202, 92, 0.26);
+  -webkit-text-stroke: 0.5px rgba(214, 171, 52, 0.55);
+}
+
+p {
+  color: #f0c75e;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-style: italic;
+  text-align: center;
+  margin: 0.5rem 0;
+  text-shadow: 0 0 8px rgba(255, 202, 92, 0.22);
+  -webkit-text-stroke: 0.3px rgba(214, 171, 52, 0.4);
+}
+
+#lord-name {
+  color: #f7d98a;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-family: "Monsieur La Doulaise", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin-top: 1rem;
+  text-shadow: 0 0 8px rgba(255, 212, 101, 0.22);
+  -webkit-text-stroke: 0.4px rgba(214, 171, 52, 0.45);
+}
+
+.stage.open .intro-panel {
+  opacity: 0;
+  transform: translate(-50%, -42%) scale(0.96);
+  pointer-events: none;
+}
+
+.stage.open .curtain-left {
+  transform: translateX(-100%);
+}
+
+.stage.open .curtain-right {
+  transform: translateX(100%);
+}
+
+.btn {
+  margin-top: 2rem;
+  background: linear-gradient(180deg, #7a1010 0%, #4d0202 100%);
+  color: #f4d57a;
+  font-family: "Baskervville", serif;
+  font-style: italic;
+  font-size: 1.125rem;
+  text-align: center;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid rgba(240, 199, 94, 0.9);
+  border-radius: 0.25rem;
+  box-shadow:
+    0 0 0 1px rgba(255, 221, 128, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(255, 221, 128, 0.28),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.07);
+  border-color: rgba(255, 220, 126, 1);
+  background: linear-gradient(180deg, #8a1414 0%, #560505 100%);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 0 0 1px rgba(255, 221, 128, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(180deg, #5d0808 0%, #360101 100%);
+  filter: brightness(0.96);
+}
+
+.btn:focus-visible {
+  outline: 2px solid rgba(255, 214, 102, 0.9);
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 1px rgba(255, 221, 128, 0.28),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}
+.background {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(108, 75, 44, 0.18) 0%,
+    rgba(56, 29, 24, 0.3) 26%,
+    rgba(20, 14, 12, 0.58) 100%
+  );
+  transition:
+    opacity 1.4s ease,
+    transform 1.4s ease;
+  z-index: 1;
+}
+
+/* Wrapper met exact de verhouding van de foto, zodat % binnenin = % van de foto */
+.painting {
+  position: relative;
+  z-index: 1;
+  width: min(88vw, 1100px, calc(96vh * 1376 / 768));
+  aspect-ratio: 1376 / 768;
+  container-type: inline-size;
+  transform: translateY(2%);
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.42));
+}
+
+.painting img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.stage.open + .background {
+  opacity: 1;
+  transform: scale(1.01);
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.08);
+}
+
+.stage.open + .background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 62%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+}
+
+/* Positie in % van de foto: binnenkant van het lijstje linksboven */
+.background .message {
+  position: absolute;
+  left: 11%;
+  top: 17%;
+  width: 17%;
+  height: 36%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1.5cqw;
+  color: #f4d57a;
+  font-family: "Baskervville", serif;
+  font-size: 1.8cqw; /* schaalt mee met de breedte van de foto */
+  line-height: 1.3;
+  font-style: italic;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.stage.open + .background .message {
+  opacity: 1;
+}
+/*alle elementen voor de game container */
+/* Absoluut gepositioneerd, zodat .painting niet hoger wordt dan de foto */
+/* Eén rij onderaan: dealer links | knoppen midden | player rechts */
+.game-container {
+  position: absolute;
+  left: 3%;
+  right: 3%;
+  bottom: 4%;
+  z-index: 2;
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 2cqw;
+}
+.dealer,
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5cqw;
+}
+.dealer {
+  align-items: flex-start;
+}
+.player {
+  align-items: flex-end;
+}
+.dealer h2,
+.player h2 {
+  margin: 0;
+  color: #f4d57a;
+  font-size: 1.6cqw;
+  font-style: italic;
+  font-weight: 400;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+.game-container .score {
+  margin: 0;
+  font-size: 1.6cqw;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+.controls {
+  display: flex;
+  gap: 1cqw;
+}
+
+/* knop styling voor de controls */
+.controls button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5cb91;
+  border-radius: 4px;
+  background-color: #c5a568;
+  color: #281b18;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.controls button:hover {
+  background-color: #d8b978;
+}
+#dealer-cards,
+#player-cards {
+  display: flex;
+  gap: 0.6cqw;
+  font-family: inherit;
+  color: #281b18;
+}
+#dealer-score,
+#player-score {
+  padding: 0 0.4em;
+  font-weight: bold;
+  color: #281b18;
+  background-color: #f4d57a;
+  border: 2px solid #e5cb91;
+}
+/* Blackjack card styles: maat in cqw, schaalt mee met de foto */
+.blackjack-card,
+.blackjack-card-back {
+  width: 5.5cqw;
+  aspect-ratio: 2 / 3;
+  border: 1px solid #000;
+  border-radius: 0.5cqw;
+  box-shadow: 0 0.3cqw 0.8cqw rgba(0, 0, 0, 0.5);
+}
+.blackjack-card {
+  background-color: #fff;
+  position: relative;
+  color: #000;
+  font-family: Georgia, serif;
+  font-style: normal;
+}
+.blackjack-card .card-corner-top-left,
+.blackjack-card .card-corner-bottom-right {
+  position: absolute;
+  font-size: 1cqw;
+  line-height: 1.1;
+}
+.blackjack-card .card-corner-top-left {
+  top: 0.3cqw;
+  left: 0.4cqw;
+}
+.blackjack-card .card-corner-bottom-right {
+  bottom: 0.3cqw;
+  right: 0.4cqw;
+}
+.blackjack-card .card-center-suit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2cqw;
+}
+.blackjack-card-back {
+  background-color: #000;
+  overflow: hidden;
+}
+.blackjack-card-back img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Ogen: positie in % van de foto, onzichtbaar tot .glow op .painting staat */
+.eye {
+  position: absolute;
+  top: 37.6%;
+  width: 3.5%;
+  aspect-ratio: 1;
+  z-index: 2;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 240, 160, 1) 0%,
+    rgba(255, 200, 60, 0.8) 30%,
+    rgba(255, 170, 0, 0) 70%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+}
+.eye-left {
+  left: 47.7%;
+}
+.eye-right {
+  left: 55.4%;
+}
+.painting.glow .eye {
+  animation: eye-glow 1.2s ease-in-out;
+}
+@keyframes eye-glow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  30%,
+  60% {
+    opacity: 1;
+  }
+}
+
+/* harten en ruiten: script.js zet de class .red op die kaarten */
+.blackjack-card.red {
+  color: #b00;
+}
+.controls button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
